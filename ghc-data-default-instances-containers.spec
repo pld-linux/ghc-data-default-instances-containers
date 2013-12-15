@@ -15,16 +15,30 @@ Source0:	http://hackage.haskell.org/package/%{pkgname}-%{version}/%{pkgname}-%{v
 # Source0-md5:	1c574d87bf9bc69d4748e3236d575a3c
 URL:		http://hackage.haskell.org/package/data-default-instances-containers
 BuildRequires:	ghc >= 6.12.3
-%{?with_prof:BuildRequires:	ghc-prof >= 6.12.3}
+BuildRequires:	ghc-base >= 2
+BuildRequires:	ghc-base <5
+BuildRequires:	ghc-containers
 BuildRequires:	ghc-data-default-class
-%{?with_prof:BuildRequires:	ghc-data-default-class-prof}
+%if %{with prof}
+BuildRequires:	ghc-prof >= 6.12.3
+BuildRequires:	ghc-base-prof >= 2
+BuildRequires:	ghc-base-prof <5
+BuildRequires:	ghc-containers-prof
+BuildRequires:	ghc-data-default-class-prof
+%endif
 BuildRequires:	rpmbuild(macros) >= 1.608
 %requires_eq	ghc
+Requires:	ghc-base >= 2
+Requires:	ghc-base <5
+Requires:	ghc-containers
 Requires:	ghc-data-default-class
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # debuginfo is not useful for ghc
 %define		_enable_debug_packages	0
+
+# don't compress haddock files
+%define		_noautocompressdoc	*.haddock
 
 %description
 This module defines 'Default' instances for the types 'S.Set',
@@ -39,6 +53,9 @@ Summary:	Profiling %{pkgname} library for GHC
 Summary(pl.UTF-8):	Biblioteka profilująca %{pkgname} dla GHC
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	ghc-base-prof >= 2
+Requires:	ghc-base-prof <5
+Requires:	ghc-containers-prof
 Requires:	ghc-data-default-class-prof
 
 %description prof
