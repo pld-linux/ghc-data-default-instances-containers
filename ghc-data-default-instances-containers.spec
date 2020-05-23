@@ -7,7 +7,7 @@ Summary:	Default instances for containers
 Summary(pl.UTF-8):	Domyślne instancje dla kontenerów
 Name:		ghc-%{pkgname}
 Version:	0.0.1
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Languages
 #Source0Download: http://hackage.haskell.org/package/data-default-instances-containers
@@ -119,17 +119,19 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE 
 %{_libdir}/%{ghcdir}/package.conf.d/%{pkgname}.conf
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}
-%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/HSdata-default-instances-containers-%{version}.o
-%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSdata-default-instances-containers-%{version}.a
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSdata-default-instances-containers-%{version}-*.so
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSdata-default-instances-containers-%{version}-*.a
+%exclude %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSdata-default-instances-containers-%{version}-*_p.a
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Data
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Data/Default
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Data/Default/Instances
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Data/Default/Instances/Containers.hi
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Data/Default/Instances/Containers.dyn_hi
 
 %if %{with prof}
 %files prof
 %defattr(644,root,root,755)
-%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSdata-default-instances-containers-%{version}_p.a
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSdata-default-instances-containers-%{version}-*_p.a
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Data/Default/Instances/Containers.p_hi
 %endif
 
