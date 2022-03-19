@@ -16,7 +16,7 @@ Source0:	http://hackage.haskell.org/package/%{pkgname}-%{version}/%{pkgname}-%{v
 URL:		http://hackage.haskell.org/package/data-default-instances-containers
 BuildRequires:	ghc >= 6.12.3
 BuildRequires:	ghc-base >= 2
-BuildRequires:	ghc-base <5
+BuildRequires:	ghc-base < 5
 BuildRequires:	ghc-containers
 BuildRequires:	ghc-data-default-class
 %if %{with prof}
