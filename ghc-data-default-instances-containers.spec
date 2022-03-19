@@ -7,7 +7,7 @@ Summary:	Default instances for containers
 Summary(pl.UTF-8):	Domyślne instancje dla kontenerów
 Name:		ghc-%{pkgname}
 Version:	0.0.1
-Release:	2
+Release:	3
 License:	BSD
 Group:		Development/Languages
 #Source0Download: http://hackage.haskell.org/package/data-default-instances-containers
