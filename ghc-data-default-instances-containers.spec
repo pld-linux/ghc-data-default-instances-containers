@@ -22,14 +22,14 @@ BuildRequires:	ghc-data-default-class
 %if %{with prof}
 BuildRequires:	ghc-prof >= 6.12.3
 BuildRequires:	ghc-base-prof >= 2
-BuildRequires:	ghc-base-prof <5
+BuildRequires:	ghc-base-prof < 5
 BuildRequires:	ghc-containers-prof
 BuildRequires:	ghc-data-default-class-prof
 %endif
 BuildRequires:	rpmbuild(macros) >= 1.608
 %requires_eq	ghc
 Requires:	ghc-base >= 2
-Requires:	ghc-base <5
+Requires:	ghc-base < 5
 Requires:	ghc-containers
 Requires:	ghc-data-default-class
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -54,7 +54,7 @@ Summary(pl.UTF-8):	Biblioteka profilująca %{pkgname} dla GHC
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	ghc-base-prof >= 2
-Requires:	ghc-base-prof <5
+Requires:	ghc-base-prof < 5
 Requires:	ghc-containers-prof
 Requires:	ghc-data-default-class-prof
 
